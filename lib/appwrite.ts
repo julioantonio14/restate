@@ -39,12 +39,13 @@ export const databases = new Databases(client);
 export async function login() {
     try {
         //const redirectUri = Linking.createURL('/', { isTripleSlashed: false });
-        const redirectUri = new URL(
+        /* const redirectUri = new URL(
             Linking.createURL("/", { isTripleSlashed: false })
-        );
-        if (!redirectUri.hostname) {
+        ); */
+        const redirectUri = Linking.createURL("index", { isTripleSlashed: false });
+        /* if (!redirectUri.hostname) {
             redirectUri.hostname = "localhost";
-        }
+        } */
         const response = await account.createOAuth2Token(
             OAuthProvider.Google,
             redirectUri.toString()
